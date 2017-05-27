@@ -1,0 +1,43 @@
+background yes
+use_xft yes
+own_window yes
+own_window_hints undecorated,below,skip_taskbar
+own_window_transparent yes
+double_buffer yes
+alignment top_right
+minimum_size 200 5
+update_interval 0.5
+
+TEXT
+${color yellow}${alignc}System
+${color white}Kernel:${alignr}${color green}${kernel}
+${color white}Logged in:${alignr}${color green}${user_names}
+${color white}Uptime:${alignr}${color green}${uptime}
+
+${color yellow}${alignc}CPU
+${color white}CPU Usage:${alignr}${color green}${cpu cpu0}%
+${color white}CPU Frequency: ${alignr}${color green}${freq cpu0}MHz
+${color red}${cpugraph cpu0 50,280 ff0000 00ff00}
+
+${color yellow}${alignc}RAM
+${color white}RAM Usage:${alignr}${color green}${memperc}%
+${color white}RAM:${alignr}${color green}${mem} / ${memmax}
+${color red}${memgraph 50,280 ff0000 00ff00}
+${color white}SWAP Usage:${alignr}${color green}${swapperc}%
+${color white}SWAP:${alignr}${color green}${swap} / ${swapmax}
+${color red}${swapbar 15,280}
+
+${color yellow}${alignc}Network
+${color white}Network IP:${alignr}${color green}${addr enp4s0}
+${color white}WAN IP:${alignr}${color green}${exec curl -s www.icanhazip.com}
+${color white}Downspeed:${alignr}${color green}${downspeed enp4s0}
+${color red}${downspeedgraph enp4s0 50,280 ff0000 00ff00}
+${color white}Upspeed:${alignr}${color green}${upspeed enp4s0}
+${color red}${upspeedgraph enp4s0 50,280 ff0000 00ff00}
+
+${color yellow}${alignc}Filesystem
+${color white}BOOT:${alignr}${fs_used /boot} / ${fs_size /boot}
+${color green}${fs_bar /boot}
+${color white}ROOT:${alignr}${fs_used /} / ${fs_size /}
+${color green}${fs_bar /}
+
